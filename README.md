@@ -11,7 +11,7 @@ BSgenome, BSgenome.Hsapiens.UCSC.hg19, BSgenome.Hsapiens.UCSC.hg38, BSgenome.Hsa
 # Installation
 ```R
 library(devtools)
-install_github("KataegisPortal","MeichunCai")
+install_github("MeichunCai/KataegisPortal")
 ```
 
 # How to use
