@@ -1,5 +1,5 @@
 mutSNP.input <- function(mut.data, chr = "chr", pos = "pos", ref = "ref", 
-    alt = "alt", build = NULL, k = 20) {
+    alt = "alt", build = NULL, k = 10) {
     if (exists("mut.data", mode = "list")) {
         mut.data <- mut.data
     } else {

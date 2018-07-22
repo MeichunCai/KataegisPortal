@@ -9,8 +9,7 @@ mutSNP = mutSNP.input(mut.data = mutData,
 			pos = "pos",
 			ref = "ref",
 			alt = "alt",
-			build = "hg19",
-			k=20)
+			build = "hg19")
 pdf("examples/KataegisPortal.pdf", width=12, height=8)
 layout(matrix(c(1,2,1,2,1,2,1,3,1,3,0,3),2,6))
 mutDis.plot(plot.data = mutSNP, sample="Test", chr = c(1:23))
