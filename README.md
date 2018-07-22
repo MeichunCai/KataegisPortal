@@ -15,4 +15,4 @@ install_github("MeichunCai/KataegisPortal")
 ```
 
 # How to use
-Please see the package tutorial.
+
