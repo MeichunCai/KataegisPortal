@@ -94,8 +94,6 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
     i = 1
     mutnum = 1
     Cmutnum = 0
-    a1 = 0
-    a2 = 0
     for (i in 1:num) {
 	if (plot.data$ref[i] %in% c("C", "G")){
             Cmutnum = Cmutnum + 1
@@ -123,14 +121,14 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
 		wei = round(Cmutnum/mutnum,3)
                 katPoint[i, 1:7] = c(plot.data$chr[i], plot.data$pos[i - 
                   mutnum + 1], plot.data$pos[i], arm, len, mutnum, wei)
-                if (wei>=0.8) {
-                  a1 = a1 + 1
-                  arrows.point[a1] = (plot.data$pos.updated[i] + plot.data$pos.updated[i - 
-                    mutnum + 1])/2
+                arrows.point = (plot.data$pos.updated[i] + plot.data$pos.updated[i - 
+                  mutnum + 1])/2
+               if (wei < 0.8) {
+                  arrows(arrows.point, 0, arrows.point, 0.5, length = 0.1, 
+                    angle = 30, code = 2, col="grey")
 		} else {
-                  a2 = a2 + 1
-                  arrows.point[a2] = (plot.data$pos.updated[i] + plot.data$pos.updated[i - 
-                    mutnum + 1])/2
+                  arrows(arrows.point, 0, arrows.point, 0.5, length = 0.1, 
+                    angle = 30, code = 2, col="black")
 		}
             }
             mutnum = 1
@@ -143,16 +141,4 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))
     print(katPoint.out)
-    if (a1 > 0) {
-        for (k in 1:a1) {
-            arrows(arrows.point[k], 0, arrows.point[k], 0.5, length = 0.1, 
-                angle = 30, code = 2, col="black")
-        }
-    }
-    if (a2 > 0) {
-        for (k in 1:a2) {
-            arrows(arrows.point[k], 0, arrows.point[k], 0.5, length = 0.1, 
-                angle = 30, code = 2, col="grey")
-        }
-    }
 }
