@@ -8,11 +8,12 @@ function katPoint() to identify potential kataegis events
 Identify potential kataegis events
 }
 \usage{
-katPoint(data, min.mut = 6, max.dis = 1000)
+katPoint(data, sample = "sample", min.mut = 6, max.dis = 1000)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{An object as returned by the 'mutSNP.input' function.}
+  \item{sample}{Name of sample [default: sample].}
   \item{min.mut}{Minimum number of consecutive mutations is used to identify potential kataegis events[default: 6].}
   \item{max.dis}{Maximum number of bases between two mutations is used to identify potential kataegis events [default: 1000].}
 }

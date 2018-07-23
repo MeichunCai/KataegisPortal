@@ -1,4 +1,4 @@
-katPoint <- function(data, min.mut = 6, max.dis = 1000) {
+katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000) {
     build = data$build[1]
     genome.opts = c("hg19", "hg18", "hg38")
     if (!build %in% genome.opts) {
@@ -26,7 +26,7 @@ katPoint <- function(data, min.mut = 6, max.dis = 1000) {
         stop("Available reference builds: hg18, hg19, hg38")
     }
     num = dim(data)[1] - 5
-    katPoint <- matrix(nrow = num, ncol = 7)
+    katPoint <- matrix(nrow = num, ncol = 8)
     i = 1
     mutnum = 1
     Cmutnum = 0
@@ -53,7 +53,7 @@ katPoint <- function(data, min.mut = 6, max.dis = 1000) {
                 } else {
                   arm = paste(chr.n, "p, ", chr.n, "q", sep = "")
                 }
-                katPoint[i, 1:7] = c(data$chr[i], data$pos[i - mutnum + 
+                katPoint[i, 1:8] = c(sample, data$chr[i], data$pos[i - mutnum + 
                   1], data$pos[i], arm, len, mutnum, round(Cmutnum/mutnum,3))
             }
             mutnum = 1
@@ -61,7 +61,7 @@ katPoint <- function(data, min.mut = 6, max.dis = 1000) {
         }
     }
     katPoint.out = data.frame(na.omit(katPoint))
-    names(katPoint.out) = c("chr", "start", "end", "chr.arm", "length", "number.mut", 
+    names(katPoint.out) = c("sample", "chr", "start", "end", "chr.arm", "length", "number.mut", 
         "weight.C>X")
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))

@@ -90,7 +90,7 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
     arrows.point = c()
     
     num = dim(plot.data)[1] - 5
-    katPoint <- matrix(nrow = num, ncol = 7)
+    katPoint <- matrix(nrow = num, ncol = 8)
     i = 1
     mutnum = 1
     Cmutnum = 0
@@ -119,7 +119,7 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
                   arm = paste(chr.n, "p, ", chr.n, "q", sep = "")
                 }
 		wei = round(Cmutnum/mutnum,3)
-                katPoint[i, 1:7] = c(plot.data$chr[i], plot.data$pos[i - 
+                katPoint[i, 1:8] = c(sample, plot.data$chr[i], plot.data$pos[i - 
                   mutnum + 1], plot.data$pos[i], arm, len, mutnum, wei)
                 arrows.point = (plot.data$pos.updated[i] + plot.data$pos.updated[i - 
                   mutnum + 1])/2
@@ -136,7 +136,7 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
         }
     }
     katPoint.out = data.frame(na.omit(katPoint))
-    names(katPoint.out) = c("chr", "start", "end", "chr.arm", "length", "number.mut", 
+    names(katPoint.out) = c("sample", "chr", "start", "end", "chr.arm", "length", "number.mut", 
         "weight.C>X")
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))
