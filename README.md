@@ -37,20 +37,26 @@ mutSNP = mutSNP.input(mut.data = mutData,
 
 # Identify potential kataegis events
 katPoint(mutSNP, sample="Test")
+```
 ![alt text](inst/examples/KatPoint.png)
-
+```R
 # Plot intermutation distance to display kataegis or hyper mutated genomic regions
 mutDis.plot(plot.data = mutSNP, sample="Test")
+```
 ![alt text](inst/examples/mutDis.plot.png)
+```R
 mutDis.plot(plot.data = mutSNP, sample="Test", chr = "chr2")
+```
 ![alt text](inst/examples/mutDis.plot.chr2.png)
-
+```R
 # Plot of flanking sequence of all C>X mutations or C>X mutations within a chromosome/chromosome arm
 baseSpe.plot(plot.data = mutSNP, sample="Test")
-![alt text](inst/examples/baseSpe.plot.png)
-baseSpe.plot(plot.data = mutSNP, sample="Test", chr = "chr2",arm="q")
-![alt text](inst/examples/baseSpe.plot.chr2q.png)
 ```
+![alt text](inst/examples/baseSpe.plot.png)
+```R
+baseSpe.plot(plot.data = mutSNP, sample="Test", chr = "chr2",arm="q")
+```
+![alt text](inst/examples/baseSpe.plot.chr2q.png)
 
 
 
