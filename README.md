@@ -2,12 +2,6 @@
 
 KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
 
-## Prerequisites
-
-ShatterSeek is written entirely in R (>= 3.3) and depends on the following packages:
-BSgenome, BSgenome.Hsapiens.UCSC.hg19, BSgenome.Hsapiens.UCSC.hg38, BSgenome.Hsapiens.UCSC.hg18 
-
-
 ## Installation
 ```R
 library(devtools)
@@ -36,7 +30,9 @@ mutSNP = mutSNP.input(mut.data = mutData,
 			build = "hg19")
 
 # Identify potential kataegis events
-katPoint(mutSNP, sample="Test")
+library(ChIPseeker)
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+katPoint(mutSNP,txdb = TxDb.Hsapiens.UCSC.hg19.knownGene)
 ```
 ![alt text](inst/examples/KatPoint.png)
 ```R

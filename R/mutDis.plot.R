@@ -135,6 +135,6 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
 	    Cmutnum = 0
         }
     }
-    message(paste(dim(katPoint.out)[1], "potential kataegis events identified. Use katPoint() function to see detail.", 
+    message(paste(dim(na.omit(katPoint))[1], "potential kataegis events identified. Use katPoint() function to see detail.", 
         sep = " "))
 }
