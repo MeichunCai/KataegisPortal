@@ -1,6 +1,5 @@
 \name{mutDis.plot}
 \alias{mutDis.plot}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 function mutDis.plot() to plot intermutation distance
 }
@@ -10,7 +9,6 @@ Plot intermutation distance to display kataegis or hyper mutated genomic regions
 \usage{
 mutDis.plot(plot.data, sample = "sample", chr = NULL, color = NULL, min.mut = 6, max.dis = 1000)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{plot.data}{An object as returned by the 'mutSNP.input' function.}
   \item{sample}{Name of sample [default: sample].}
@@ -18,31 +16,6 @@ mutDis.plot(plot.data, sample = "sample", chr = NULL, color = NULL, min.mut = 6,
   \item{color}{Colour to show the mutations ("C>A", "C>G", "C>T", "T>A", "T>C", "T>G").}
   \item{min.mut}{Minimum number of consecutive mutations is used to identify potential kataegis events [default: 6].}
   \item{max.dis}{Maximum number of bases between two mutations is used to identify potential kataegis events [default: 1000].}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 library(KataegisPortal)
@@ -58,7 +31,3 @@ mutSNP = mutSNP.input(mut.data = mutData,
 			build = "hg19")
 mutDis.plot(plot.data = mutSNP, sample="Test", chr = c(1:23))
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

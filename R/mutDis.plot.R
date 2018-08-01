@@ -135,10 +135,6 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
 	    Cmutnum = 0
         }
     }
-    katPoint.out = data.frame(na.omit(katPoint))
-    names(katPoint.out) = c("sample", "chr", "start", "end", "chr.arm", "length", "number.mut", 
-        "weight.C>X")
-    message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
+    message(paste(dim(katPoint.out)[1], "potential kataegis events identified. Use katPoint() function to see detail.", 
         sep = " "))
-    print(katPoint.out)
 }

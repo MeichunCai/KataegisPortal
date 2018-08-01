@@ -1,4 +1,5 @@
-katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000) {
+katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000, 
+    txdb = NULL) {
     build = data$build[1]
     genome.opts = c("hg19", "hg18", "hg38")
     if (!build %in% genome.opts) {
@@ -63,6 +64,15 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000) {
     katPoint.out = data.frame(na.omit(katPoint))
     names(katPoint.out) = c("sample", "chr", "start", "end", "chr.arm", "length", "number.mut", 
         "weight.C>X")
+    if (!is.null(txdb)) {
+        gr <- GRanges(seqnames = Rle(katPoint.out$chr), ranges=IRanges(start = 
+            as.numeric(katPoint.out$start), end =as.numeric(katPoint.out$end)))
+        peakAnno <- annotatePeak(gr, tssRegion = c(-3000, 3000), TxDb = txdb, annoDb = "org.Hs.eg.db")
+        katPoint.out$annotation <- peakAnno@anno$annotation
+        katPoint.out$distanceToTSS <- peakAnno@anno$distanceToTSS
+        katPoint.out$SYMBOL <- peakAnno@anno$SYMBOL
+        katPoint.out$geneId <- peakAnno@anno$geneId
+    } 
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))
     return(katPoint.out)
