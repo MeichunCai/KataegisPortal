@@ -62,16 +62,23 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
         }
     }
     katPoint.out = data.frame(na.omit(katPoint))
-    names(katPoint.out) = c("sample", "chr", "start", "end", "chr.arm", "length", "number.mut", 
+    names(katPoint.out) = c("sample", "chrom", "start", "end", "chrom.arm", "length", "number.mut", 
         "weight.C>X")
+    for (i in 1:dim(katPoint.out)[1]) {
+        katPoint.out$confidence[i] <- length(which(subset(katPoint.out,
+           as.numeric(as.character(katPoint.out$"weight.C>X")) >= 0.8)$chrom == katPoint.out$chrom[i]))
+	if (katPoint.out$confidence[i] > 3) {
+            katPoint.out$confidence[i] = 3
+	}
+    }
     if (!is.null(txdb)) {
-        gr <- GRanges(seqnames = Rle(katPoint.out$chr), ranges=IRanges(start = 
+        gr <- GRanges(seqnames = Rle(katPoint.out$chrom), ranges=IRanges(start = 
             as.numeric(as.character(katPoint.out$start)), end =as.numeric(as.character(katPoint.out$end))))
         peakAnno <- annotatePeak(gr, tssRegion = c(-3000, 3000), TxDb = txdb, annoDb = "org.Hs.eg.db")
         katPoint.out$annotation <- peakAnno@anno$annotation
         katPoint.out$distanceToTSS <- peakAnno@anno$distanceToTSS
-        katPoint.out$SYMBOL <- peakAnno@anno$SYMBOL
-        katPoint.out$geneId <- peakAnno@anno$geneId
+        katPoint.out$geneName <- peakAnno@anno$SYMBOL
+        katPoint.out$geneID <- peakAnno@anno$geneId
     } 
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))
