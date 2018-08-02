@@ -35,6 +35,8 @@ library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 katPoint(mutSNP,txdb = TxDb.Hsapiens.UCSC.hg19.knownGene)
 ```
 ![alt text](inst/examples/KatPoint.png)
+- weight.C>X: proportion of C>X mutations
+- confidence: confidence degree of potential kataegis events (range: 0 to 3, 3 - high confidence)
 ```R
 # Plot intermutation distance to display kataegis or hyper mutated genomic regions
 mutDis.plot(plot.data = mutSNP, sample="Test")
