@@ -66,7 +66,7 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
         "weight.C>X")
     if (!is.null(txdb)) {
         gr <- GRanges(seqnames = Rle(katPoint.out$chr), ranges=IRanges(start = 
-            as.numeric(katPoint.out$start), end =as.numeric(katPoint.out$end)))
+            as.numeric(as.character(katPoint.out$start)), end =as.numeric(as.character(katPoint.out$end))))
         peakAnno <- annotatePeak(gr, tssRegion = c(-3000, 3000), TxDb = txdb, annoDb = "org.Hs.eg.db")
         katPoint.out$annotation <- peakAnno@anno$annotation
         katPoint.out$distanceToTSS <- peakAnno@anno$distanceToTSS
