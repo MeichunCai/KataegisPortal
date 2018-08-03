@@ -3,10 +3,10 @@
 \alias{KataegisPortal}
 \docType{package}
 \title{
-\packageTitle{KataegisPortal}
+\Detection and Visualization of Kataegis
 }
 \description{
-\packageDescription{KataegisPortal}
+\KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs).
 }
 \section{Main functions}{
 
@@ -18,9 +18,9 @@
   }
 }
 \author{
-\packageAuthor{KataegisPortal}
+\Mei-Chun Cai <caimeichun@hotmail.com>
 }
 \references{
 ~~ Literature or other references for background information ~~
 }
-}
+

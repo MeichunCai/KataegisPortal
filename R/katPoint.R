@@ -65,10 +65,14 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
     names(katPoint.out) = c("sample", "chrom", "start", "end", "chrom.arm", "length", "number.mut", 
         "weight.C>X")
     for (i in 1:dim(katPoint.out)[1]) {
-        katPoint.out$confidence[i] <- length(which(subset(katPoint.out,
-           as.numeric(as.character(katPoint.out$"weight.C>X")) >= 0.8)$chrom == katPoint.out$chrom[i]))
-	if (katPoint.out$confidence[i] > 3) {
-            katPoint.out$confidence[i] = 3
+        if (as.numeric(as.character(katPoint.out$"weight.C>X"[i])) < 0.8) {
+            katPoint.out$confidence[i] = 0
+	} else {
+            katPoint.out$confidence[i] <- length(which(subset(katPoint.out,
+               as.numeric(as.character(katPoint.out$"weight.C>X")) >= 0.8)$chrom == katPoint.out$chrom[i]))
+            if (katPoint.out$confidence[i] > 3) {
+                katPoint.out$confidence[i] = 3
+            }
 	}
     }
     if (!is.null(txdb)) {
