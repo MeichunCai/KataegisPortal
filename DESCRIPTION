@@ -4,7 +4,7 @@ Title: Detection and Visualization of Kataegis
 Version: 1.0.3
 Author: Mei-Chun Cai <caimeichun@hotmail.com>
 Maintainer: Mei-Chun Cai <caimeichun@hotmail.com>
-Description: KataegisPortal is an R package that provides utilities to detect Kataegis events from single nucleotide variants (SNVs). 
+Description: KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
 Depends: R (>= 3.3)
 Imports: BSgenome
 Suggests: BSgenome.Hsapiens.UCSC.hg19, BSgenome.Hsapiens.UCSC.hg38, BSgenome.Hsapiens.UCSC.hg18 

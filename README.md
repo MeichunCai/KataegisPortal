@@ -34,7 +34,7 @@ katPoint(mutSNP)
 ```
 ![alt text](inst/examples/KatPoint.png)
 - weight.C>X: proportion of C>X mutations
-- confidence: confidence degree of potential kataegis events (range: 0 to 3, 0 - a hypemutation with weight.C>X < 0.8; 1 - one hypemutation with weight.C>X >= 0.8 in a chromosome; 2 - two hypemutations with weight.C>X >= 0.8 in a chromosome; 3 - high confidence with three or more hypemutations with weight.C>X >= 0.8 in a chromosome)
+- confidence: confidence degree of potential kataegis events (range: 0 to 3, 0 - a hypermutation with weight.C>X < 0.8; 1 - one hypermutation with weight.C>X >= 0.8 in a chromosome; 2 - two hypermutations with weight.C>X >= 0.8 in a chromosome; 3 - high confidence with three or more hypermutations with weight.C>X >= 0.8 in a chromosome)
 ```R
 # Identify potential kataegis events with annonation
 library(ChIPseeker)
@@ -61,5 +61,8 @@ baseSpe.plot(plot.data = mutSNP, sample="Test", chr = "chr2",arm="q")
 ```
 ![alt text](inst/examples/baseSpe.plot.chr2q.png)
 
+## References
+- Nik-Zainal, S. et al. Mutational processes molding the genomes of 21 breast cancers. Cell 149, 979-993, doi:10.1016/j.cell.2012.04.024 (2012).
+- Alexandrov, L. B. et al. Signatures of mutational processes in human cancer. Nature 500, 415-421, doi:10.1038/nature12477 (2013).
 
 
