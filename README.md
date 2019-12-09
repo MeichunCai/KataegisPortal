@@ -17,7 +17,7 @@ library(BSgenome)
 library(BSgenome.Hsapiens.UCSC.hg19)
 
 # Read in snv data
-mutData <- "examples/mutData.txt"
+mutData <- system.file("examples", "mutData.txt", package="KataegisPortal")
 mutData <- read.table(mutData, header = TRUE,sep = "\t",as.is = TRUE)
 head(mutData)
 
