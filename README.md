@@ -2,6 +2,7 @@
 
 KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
 
+
 ## Installation
 ```R
 library(devtools)
@@ -61,8 +62,6 @@ baseSpe.plot(plot.data = mutSNP, sample="Test", chr = "chr2",arm="q")
 ```
 ![alt text](inst/examples/baseSpe.plot.chr2q.png)
 
-## References
-- Nik-Zainal, S. et al. Mutational processes molding the genomes of 21 breast cancers. Cell 149, 979-993, doi:10.1016/j.cell.2012.04.024 (2012).
-- Alexandrov, L. B. et al. Signatures of mutational processes in human cancer. Nature 500, 415-421, doi:10.1038/nature12477 (2013).
-
+## Citation
+- Xia Yin, Rui Bi, Pengfei Ma, Shengzhe Zhang, Yang Zhang, Yunheng Sun, Yi Zhang, Ying Jing, Minhua Yu, Wenjing Wang, Li Tan, Wen Di #, Guanglei Zhuang #, Mei-Chun Cai #. Multiregion whole-genome sequencing depicts intratumor heterogeneity and punctuated evolution in ovarian clear cell carcinoma. Journal of Medical Genetics. 2019 Dec 20;jmedgenet-2019-106418. doi: 10.1136/jmedgenet-2019-106418.
 
