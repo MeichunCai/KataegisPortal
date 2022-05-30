@@ -11,9 +11,9 @@ mutSNP.input <- function(mut.data, chr = "chr", pos = "pos", ref = "ref",
         }
     }
     mut.data <- mut.data[, c(chr, pos, ref, alt)]
-    genome.opts = c("hg19", "hg18", "hg38")
+    genome.opts = c("hg19", "hg18", "hg38","CHM13")
     if (!build %in% genome.opts || is.null(build)) {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38,CHM13")
     }
     if (build == "hg19") {
         chr.lens = c(249250621, 243199373, 198022430, 191154276, 180915260, 
@@ -36,8 +36,15 @@ mutSNP.input <- function(mut.data, chr = "chr", pos = "pos", ref = "ref",
             90338345, 83257441, 80373285, 58617616, 64444167, 46709983, 
             50818468, 156040895, 57227415)
         bsg = BSgenome.Hsapiens.UCSC.hg38
+    } else if (build == "CHM13") {
+            chr.lens = c(248387328,242696752,201105948,193574945,182045439,
+            172126628,160567428,146259331,150617247,134758134,135127769,
+            133324548,113566686,101161492,99753195,96330374,84276897,
+            80542538,61707364,
+            66210255,45090682,51324926,154259566,62460029)
+        bsg = BSgenome.Hsapiens.CHM13
     } else {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38,CHM13")
     }
     mut.data$build = build
     if (!all(mut.data$ref %in% DNA_BASES & mut.data$alt %in% DNA_BASES)) {

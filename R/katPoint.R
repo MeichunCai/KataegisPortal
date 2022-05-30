@@ -1,9 +1,9 @@
 katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000, 
     txdb = NULL) {
     build = data$build[1]
-    genome.opts = c("hg19", "hg18", "hg38")
+    genome.opts = c("hg19", "hg18", "hg38","CHM13")
     if (!build %in% genome.opts) {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     if (build == "hg19") {
         chr.arm = c(1.25e+08, 93300000, 9.1e+07, 50400000, 48400000, 
@@ -23,8 +23,15 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
             35500000, 17700000, 17200000, 1.9e+07, 36800000, 25100000, 
             18500000, 26200000, 28100000, 1.2e+07, 1.5e+07, 6.1e+07, 
             10400000)
+    } else if (build == "CHM13") {
+            chr.lens = c(248387328,242696752,201105948,193574945,182045439,
+            172126628,160567428,146259331,150617247,134758134,135127769,
+            133324548,113566686,101161492,99753195,96330374,84276897,
+            80542538,61707364,
+            66210255,45090682,51324926,154259566,62460029)
+        bsg = BSgenome.Hsapiens.CHM13
     } else {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     num = dim(data)[1] - 5
     katPoint <- matrix(nrow = num, ncol = 8)

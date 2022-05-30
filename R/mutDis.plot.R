@@ -7,9 +7,9 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
     }
     names(col) = c("C>A", "C>G", "C>T", "T>A", "T>C", "T>G")
     build = plot.data$build[1]
-    genome.opts = c("hg19", "hg18", "hg38")
+    genome.opts = c("hg19", "hg18", "hg38","CHM13")
     if (!build %in% genome.opts) {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     if (build == "hg19") {
         chr.lens = c(249250621, 243199373, 198022430, 191154276, 180915260, 
@@ -44,8 +44,16 @@ mutDis.plot <- function(plot.data, sample = "sample", chr = NULL, color = NULL,
             35500000, 17700000, 17200000, 1.9e+07, 36800000, 25100000, 
             18500000, 26200000, 28100000, 1.2e+07, 1.5e+07, 6.1e+07, 
             10400000)
-    } else {
-        stop("Available reference builds: hg18, hg19, hg38")
+    }  else if (build == "CHM13") {
+            chr.lens = c(248387328,242696752,201105948,193574945,182045439,
+            172126628,160567428,146259331,150617247,134758134,135127769,
+            133324548,113566686,101161492,99753195,96330374,84276897,
+            80542538,61707364,
+            66210255,45090682,51324926,154259566,62460029)
+        bsg = BSgenome.Hsapiens.CHM13
+    }
+    else {
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     if (is.null(chr)) {
         seq = c(1:24)
