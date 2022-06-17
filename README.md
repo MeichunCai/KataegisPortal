@@ -1,5 +1,8 @@
 ## Support CHM13
  you need to build your own BSgenome and install it
+ or you can download it directly and install it locally.
+ https://drive.google.com/file/d/1_aezGIwybIFoedRTqEC2aBTVXP5Jyhu-/view?usp=sharing
+
  then library(BSgenome.Hsapiens.CHM13)
  
 ## KataegisPortal 
