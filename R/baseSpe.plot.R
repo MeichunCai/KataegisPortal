@@ -1,9 +1,9 @@
 baseSpe.plot <- function(plot.data, sample = "sample", chr = NULL, 
     arm = NULL, color = NULL, k = NULL) {
     build = plot.data$build[1]
-    genome.opts = c("hg19", "hg18", "hg38")
+    genome.opts = c("hg19", "hg18", "hg38","CHM13")
     if (!build %in% genome.opts) {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     if (build == "hg19") {
         chr.arm = c(1.25e+08, 93300000, 9.1e+07, 50400000, 48400000, 
@@ -23,8 +23,15 @@ baseSpe.plot <- function(plot.data, sample = "sample", chr = NULL,
             35500000, 17700000, 17200000, 1.9e+07, 36800000, 25100000, 
             18500000, 26200000, 28100000, 1.2e+07, 1.5e+07, 6.1e+07, 
             10400000)
+    } else if (build == "CHM13") {
+        chr.arm = c(124048267, 93503283, 94076514, 52452474, 48317879, 
+            59672548, 62064435, 45270456, 46267185, 40649191, 52743313, 
+            35911664, 16522942, 11400261, 17186630, 36838903, 25689679, 
+            18449624, 27792923, 28012753, 11134529, 14249622, 59373565, 
+            10724418)
+        bsg = BSgenome.Hsapiens.CHM13
     } else {
-        stop("Available reference builds: hg18, hg19, hg38")
+        stop("Available reference builds: hg18, hg19, hg38","CHM13")
     }
     if (is.null(color)) {
         col = c("darkgreen", "darkblue", "grey", "darkred")
@@ -57,9 +64,9 @@ baseSpe.plot <- function(plot.data, sample = "sample", chr = NULL,
         k = (nchar(as.character(plot.data$context[1])) - 1)/2
     } else {
         build = plot.data$build[1]
-        genome.opts = c("hg19", "hg18", "hg38")
+        genome.opts = c("hg19", "hg18", "hg38","CHM13")
         if (!build %in% genome.opts) {
-            stop("Available reference builds: hg18, hg19, hg38")
+            stop("Available reference builds: hg18, hg19, hg38","CHM13")
         }
         if (build == "hg19") {
             bsg = BSgenome.Hsapiens.UCSC.hg19
@@ -67,8 +74,10 @@ baseSpe.plot <- function(plot.data, sample = "sample", chr = NULL,
             bsg = BSgenome.Hsapiens.UCSC.hg18
         } else if (build == "hg38") {
             bsg = BSgenome.Hsapiens.UCSC.hg38
+        } else if (build == "CHM13"){
+            bsg = BSgenome.Hsapiens.CHM13
         } else {
-            stop("Available reference builds: hg18, hg19, hg38")
+            stop("Available reference builds: hg18, hg19, hg38","CHM13")
         }
         conv.start = plot.data$pos - k
         conv.end = plot.data$pos + k
