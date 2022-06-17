@@ -1,3 +1,7 @@
+## Support CHM13
+ you need to build your own BSgenome and install it
+ then library(BSgenome.Hsapiens.CHM13)
+ 
 ## KataegisPortal 
 
 KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
