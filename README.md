@@ -4,7 +4,12 @@
  https://drive.google.com/file/d/1_aezGIwybIFoedRTqEC2aBTVXP5Jyhu-/view?usp=sharing
 
  then library(BSgenome.Hsapiens.CHM13)
- 
+mutSNP = mutSNP.input(mut.data = mutData,
+			chr = "chr",
+			pos = "pos",
+			ref = "ref",
+			alt = "alt",
+			build = "CHM13") 
 ## KataegisPortal 
 
 KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
