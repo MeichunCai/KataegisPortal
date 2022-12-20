@@ -1,5 +1,7 @@
 ## KataegisPortal 
 
+**This forked version of [MeichunCai/KataegisPortal](https://github.com/MeichunCai/KataegisPortal) uses NAMESPACE file, so that no extra libraries need to be loaded before the package is used (which was necessary in the original package)**
+
 KataegisPortal is an R package that provides utilities to detect and visualize the Kataegis events from single nucleotide variants (SNVs). 
 
 
