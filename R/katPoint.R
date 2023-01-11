@@ -62,8 +62,11 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
         }
     }
     katPoint.out = data.frame(na.omit(katPoint))
-    names(katPoint.out) = c("sample", "chrom", "start", "end", "chrom.arm", "length", "number.mut", 
-        "weight.C>X")
+    katpoint_colnames <- c("sample", "chrom", "start", "end", "chrom.arm", "length", "number.mut", "weight.C>X")
+    names(katPoint.out) = katpoint_colnames
+  if (dim(katPoint.out)[1] == 0) {
+    return(data.frame(matrix(ncol=9,nrow=0, dimnames=list(NULL, c(katpoint_colnames, "confidence")))))
+  } else {
     for (i in 1:dim(katPoint.out)[1]) {
         if (as.numeric(as.character(katPoint.out$"weight.C>X"[i])) < 0.8) {
             katPoint.out$confidence[i] = 0
@@ -87,4 +90,5 @@ katPoint <- function(data, sample = "sample", min.mut = 6, max.dis = 1000,
     message(paste(dim(katPoint.out)[1], "potential kataegis events identified", 
         sep = " "))
     return(katPoint.out)
+  }
 }
