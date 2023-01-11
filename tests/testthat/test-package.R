@@ -49,8 +49,8 @@ test_that("Package results are identical to the original ones", {
 })
 
 
-test_that("Package does not fail for TCGA case that the original code does", {
-  snvs <- readr::read_tsv("tests/testdata/TCGA-A6-A565_primary_solid.snvs.tsv", col_types = "ccdcc") %>%
+test_that("Package does not fail for TCGA case that the original code used to", {
+  snvs <- readr::read_tsv("../testdata/TCGA-A6-A565_primary_solid.snvs.tsv", col_types = "ccdcc") %>%
     as.data.frame()
 
   mutSNP <- mutSNP.input(
